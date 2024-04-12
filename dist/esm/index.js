@@ -1253,13 +1253,10 @@ var countries = [
 	}
 ];
 
-// SelectedCountryStorage.ts
-let selectedCountry = "";
-const setSelectedCountryStorage = (country) => {
-    selectedCountry = country;
-};
-const getSelectedCountry = () => {
-    return selectedCountry;
+// CountryHandler.ts
+const handleCountryValue = (countryName) => {
+    // Perform any operations you want with the country name here
+    return countryName;
 };
 
 // import React from 'react';
@@ -1291,9 +1288,8 @@ const getSelectedCountry = () => {
 const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = useState("");
     const handleCountryChange = (event) => {
-        const countryName = event.target.value;
-        setSelectedCountry(countryName);
-        setSelectedCountryStorage(countryName);
+        setSelectedCountry(event.target.value);
+        handleCountryValue(event.target.value);
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleCountryChange },
@@ -1337,10 +1333,17 @@ const CountryList = () => {
 //     );
 // };
 // export default ProvinceList;
-// DisplayCountryStatus.tsx
+// CountryDisplay.tsx
 const ProvinceList = () => {
-    const selectedCountry = getSelectedCountry();
-    return (React.createElement("div", null, selectedCountry === "Nepal" ? (React.createElement("h1", null, "Good")) : (React.createElement("h1", null, "Not Good"))));
+    // Assuming you have a component function where you get the country name from some source
+    // For demonstration purposes, let's assume you have a hardcoded country name here
+    const countryName = "Nepal"; // You can replace this with your actual country name source
+    // Get the processed value from the handleCountryValue function
+    const processedValue = handleCountryValue(countryName);
+    // Determine the message to display based on the processed value
+    const message = processedValue === "Nepal" ? "Good" : "Not Good";
+    return (React.createElement("div", null,
+        React.createElement("h1", null, message)));
 };
 
 export { CountryList, ProvinceList as ProvienceList };
