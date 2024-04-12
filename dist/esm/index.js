@@ -4105,28 +4105,39 @@ var countries = [
 //     );
 // };
 // export default CountryList;
+// import { useState } from 'react';
 const CountryList = () => {
-    const [selectedCountry, setSelectedCountry] = reactExports.useState(""); // state variable to store selected country value
-    const handleChange = (event) => {
-        setSelectedCountry(event.target.value);
-    };
+    // const [selectedCountry, setSelectedCountry] = useState<string>(""); // state variable to store selected country value
+    // const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => { // this function trigger when value select in select field
+    //     setSelectedCountry(event.target.value);
+    // };
     return (React.createElement("div", null,
-        React.createElement("select", { value: selectedCountry, onChange: handleChange },
+        React.createElement("select", null,
             React.createElement("option", { value: "" }, "Country"),
-            countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name)))),
-        selectedCountry && React.createElement("p", null,
-            "Selected country: ",
-            selectedCountry)));
+            countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
 
-// import React from 'react';
+const ProvinceList = () => {
+    return (React.createElement(React.Fragment, null,
+        React.createElement("h1", null, "This is ProvinceList")));
+};
+// import React, { useState, useEffect } from 'react';
 // interface Props {
 //     countryName: string;
 // }
 // const ProvinceList: React.FC<Props> = ({ countryName }) => {
+//     const [selectedProvince, setSelectedProvince] = useState<string>("");
+//     const [disabled, setDisabled] = useState<boolean>(countryName !== "Nepal");
+//     useEffect(() => {
+//         setSelectedProvince("");
+//         setDisabled(countryName !== "Nepal");
+//     }, [countryName]);
+//     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedProvince(event.target.value);
+//     };
 //     return (
 //         <>
-//             <select disabled={countryName !== "Nepal"}>
+//             <select value={selectedProvince} disabled={disabled} onChange={handleProvinceChange}>
 //                 <option value="">Province</option>
 //                 <option value="Koshi">Koshi</option>
 //                 <option value="Provience 2">Province 2</option>
@@ -4136,23 +4147,6 @@ const CountryList = () => {
 //     );
 // };
 // export default ProvinceList;
-const ProvinceList = ({ countryName }) => {
-    const [selectedProvince, setSelectedProvince] = reactExports.useState("");
-    const [disabled, setDisabled] = reactExports.useState(countryName !== "Nepal");
-    reactExports.useEffect(() => {
-        setSelectedProvince("");
-        setDisabled(countryName !== "Nepal");
-    }, [countryName]);
-    const handleProvinceChange = (event) => {
-        setSelectedProvince(event.target.value);
-    };
-    return (React.createElement(React.Fragment, null,
-        React.createElement("select", { value: selectedProvince, disabled: disabled, onChange: handleProvinceChange },
-            React.createElement("option", { value: "" }, "Province"),
-            React.createElement("option", { value: "Koshi" }, "Koshi"),
-            React.createElement("option", { value: "Provience 2" }, "Province 2"),
-            React.createElement("option", { value: "Bagmati" }, "Bagmati"))));
-};
 
 export { CountryList, ProvinceList as ProvienceList };
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,3 @@
-import React from 'react';
-interface Props {
-    countryName: string;
-}
-declare const ProvinceList: React.FC<Props>;
+import React from "react";
+declare const ProvinceList: () => React.JSX.Element;
 export default ProvinceList;
