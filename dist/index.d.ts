@@ -2,6 +2,9 @@ import React from 'react';
 
 declare const CountryList: () => React.JSX.Element;
 
-declare const ProvienceList: () => React.JSX.Element;
+interface Props {
+    countryName: string;
+}
+declare const ProvinceList: React.FC<Props>;
 
-export { CountryList, ProvienceList };
+export { CountryList, ProvinceList as ProvienceList };
