@@ -48,21 +48,21 @@
 
 
 
-import React, { useState } from 'react';
-import CountryList from '../CountryList/CountryList';
+
+// DisplayCountryStatus.tsx
+import React from 'react';
+import { getSelectedCountry } from '../CountryList/SelectedCountryStorage'; // Adjust the path accordingly
 
 const ProvinceList = () => {
-    const [isNepal, setIsNepal] = useState<boolean>(false);
-
-    const handleCountryChange = (isNepal: boolean) => {
-        setIsNepal(isNepal);
-    };
+    const selectedCountry = getSelectedCountry();
 
     return (
         <div>
-            <CountryList onCountryChange={handleCountryChange} />
-            {/* You can use isNepal here however you want */}
-            {/* You can also choose not to display isNepal */}
+            {selectedCountry === "Nepal" ? (
+                <h1>Good</h1>
+            ) : (
+                <h1>Not Good</h1>
+            )}
         </div>
     );
 };

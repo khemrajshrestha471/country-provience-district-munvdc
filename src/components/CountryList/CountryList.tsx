@@ -34,61 +34,23 @@
 
 
 
-// "use client";
-
-// import React, { useState } from 'react';
-// import countries from "../../assets/countries.json";
-// interface Country {
-//     country_name: string; 
-// }
-
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-
-//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleCountryChange}>
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//         </div>
-//     );
-// };
-
-// export default CountryList;
-
-
-
+"use client";
 
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
+import { setSelectedCountryStorage } from './SelectedCountryStorage';
 interface Country {
     country_name: string; 
 }
 
-interface Props {
-    onCountryChange: (isNepal: boolean) => void;
-}
-
-const CountryList: React.FC<Props> = ({ onCountryChange }) => {
+const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
 
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedCountryName = event.target.value;
-        setSelectedCountry(selectedCountryName);
-        // Check if the selected country is "Nepal"
-        const isNepal = selectedCountryName === "Nepal";
-        // Call the callback function with the result
-        onCountryChange(isNepal);
+        const countryName = event.target.value;
+        setSelectedCountry(countryName);
+        setSelectedCountryStorage(countryName);
     };
-
     return (
         <div>
             <select onChange={handleCountryChange}>
