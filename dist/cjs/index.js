@@ -1348,7 +1348,7 @@ const CountryList = () => {
         React.createElement("select", { onChange: handleCountryChange },
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name)))),
-        selectedCountry && React.createElement(ProvinceList, Object.assign({}, provinceListProps))));
+        selectedCountry && ProvinceList(provinceListProps)));
 };
 // import { useState } from 'react';
 // import React from 'react';
