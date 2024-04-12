@@ -2,15 +2,28 @@
   "name": "country-provience-district-munvdc",
   "version": "1.0.0",
   "description": "A complete npm package of react component for conditional selection of provience, district, mun/vdc based on country",
-  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rollup": "rollup -c"
   },
   "author": "Khemraj Shrestha (www.khemrajshrestha.com.np)",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.77",
     "react": "^18.2.0",
+    "rollup": "^4.14.2",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-json": "^4.0.0",
     "typescript": "^5.4.5"
-  }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
 }
