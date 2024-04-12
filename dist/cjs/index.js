@@ -1255,6 +1255,33 @@ var countries = [
 	}
 ];
 
+// import React from "react"
+// const ProvinceList = () => {
+//     return (
+//         <>
+//         <h1>This is ProvinceList</h1>
+//         </>
+//     )
+// }
+// export default ProvinceList
+const ProvinceList = ({ countryName }) => {
+    const [selectedProvince, setSelectedProvince] = React.useState("");
+    const [disabled, setDisabled] = React.useState(countryName !== "Nepal");
+    React.useEffect(() => {
+        setSelectedProvince("");
+        setDisabled(countryName !== "Nepal");
+    }, [countryName]);
+    const handleProvinceChange = (event) => {
+        setSelectedProvince(event.target.value);
+    };
+    return (React.createElement(React.Fragment, null,
+        React.createElement("select", { value: selectedProvince, disabled: disabled, onChange: handleProvinceChange },
+            React.createElement("option", { value: "" }, "Province"),
+            React.createElement("option", { value: "Koshi" }, "Koshi"),
+            React.createElement("option", { value: "Provience 2" }, "Province 2"),
+            React.createElement("option", { value: "Bagmati" }, "Bagmati"))));
+};
+
 // import React from 'react';
 // import countries from "../../assets/countries.json";
 // import ProvinceList from '../ProvienceList/ProvienceList';
@@ -1281,77 +1308,17 @@ var countries = [
 //     );
 // };
 // export default CountryList;
-// "use client";
-// import React, { useState } from 'react';
-// import countries from "../../assets/countries.json";
-// import ProvinceList from '../ProvienceList/ProvienceList';
-// interface Country {
-//     country_name: string; 
-// }
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleCountryChange}>
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//             <ProvinceList countryName={selectedCountry} />
-//         </div>
-//     );
-// };
-// export default CountryList;
 const CountryList = () => {
-    const [selectedCountry, setSelectedCountry] = React.useState(""); // state variable to store selected country value
-    const handleChange = (event) => {
+    const [selectedCountry, setSelectedCountry] = React.useState("");
+    const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);
     };
     return (React.createElement("div", null,
-        React.createElement("select", { value: selectedCountry, onChange: handleChange },
+        React.createElement("select", { onChange: handleCountryChange },
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name)))),
-        selectedCountry && React.createElement("p", null,
-            "Selected country: ",
-            selectedCountry)));
+        React.createElement(ProvinceList, { countryName: selectedCountry })));
 };
-
-const ProvinceList = () => {
-    return (React.createElement(React.Fragment, null,
-        React.createElement("h1", null, "This is ProvinceList")));
-};
-// import React, { useState, useEffect } from 'react';
-// interface Props {
-//     countryName: string;
-// }
-// const ProvinceList: React.FC<Props> = ({ countryName }) => {
-//     const [selectedProvince, setSelectedProvince] = useState<string>("");
-//     const [disabled, setDisabled] = useState<boolean>(countryName !== "Nepal");
-//     useEffect(() => {
-//         setSelectedProvince("");
-//         setDisabled(countryName !== "Nepal");
-//     }, [countryName]);
-//     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedProvince(event.target.value);
-//     };
-//     return (
-//         <>
-//             <select value={selectedProvince} disabled={disabled} onChange={handleProvinceChange}>
-//                 <option value="">Province</option>
-//                 <option value="Koshi">Koshi</option>
-//                 <option value="Provience 2">Province 2</option>
-//                 <option value="Bagmati">Bagmati</option>
-//             </select>
-//         </>
-//     );
-// };
-// export default ProvinceList;
 
 exports.CountryList = CountryList;
 exports.ProvienceList = ProvinceList;
