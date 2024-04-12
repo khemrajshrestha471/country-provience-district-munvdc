@@ -8,6 +8,8 @@ const ProvinceList = () => {
     )
 }
 
+export default ProvinceList
+
 
 
 // import React, { useState, useEffect } from 'react';
