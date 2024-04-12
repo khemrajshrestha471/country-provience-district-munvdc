@@ -4052,13 +4052,14 @@ var countries = [
 	}
 ];
 
+// import React, { useState } from 'react';
 const CountryList = () => {
-    const [selectedCountry, setSelectedCountry] = reactExports.useState(""); // state variable to store selected country value
-    const handleChange = (event) => {
-        setSelectedCountry(event.target.value);
-    };
+    // const [selectedCountry, setSelectedCountry] = useState<string>(""); // state variable to store selected country value
+    // const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => { // this function trigger when value select in select field
+    //     setSelectedCountry(event.target.value);
+    // };
     return (React.createElement("div", null,
-        React.createElement("select", { value: selectedCountry, onChange: handleChange },
+        React.createElement("select", null,
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
