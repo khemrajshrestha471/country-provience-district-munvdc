@@ -37,7 +37,7 @@
 "use client";
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
-import { handleCountryValue } from './CountryHandler';
+import handleCountryValue  from './CountryHandler';
 
 interface Country {
     country_name: string; 
@@ -48,7 +48,7 @@ const CountryList = () => {
 
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCountry(event.target.value);
-        const processedValue = handleCountryValue(event.target.value);
+        handleCountryValue(selectedCountry);
     };
     return (
         <div>
