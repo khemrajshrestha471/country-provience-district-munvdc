@@ -1,1 +1,2 @@
-export declare const handleCountryValue: (countryName: string) => string;
+declare const handleCountryValue: (selectedCountry: string) => string;
+export default handleCountryValue;

@@ -1255,10 +1255,9 @@ var countries = [
 	}
 ];
 
-// CountryHandler.ts
-const handleCountryValue = (countryName) => {
-    // Perform any operations you want with the country name here
-    return countryName;
+// handleCountryValue.ts
+const handleCountryValue = (selectedCountry) => {
+    return selectedCountry;
 };
 
 // import React from 'react';
@@ -1291,7 +1290,6 @@ const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = React.useState("");
     const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);
-        handleCountryValue(event.target.value);
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleCountryChange },
@@ -1335,17 +1333,27 @@ const CountryList = () => {
 //     );
 // };
 // export default ProvinceList;
-// CountryDisplay.tsx
+// DisplayCountryStatus.tsx
+// import React from 'react';
+// import { handleCountryValue } from '../CountryList/CountryHandler';
+// const ProvinceList = () => {
+//     const selectedCountry = handleCountryValue();
+//     return (
+//         <div>
+//             {selectedCountry === "Nepal" ? (
+//                 <h1>Good</h1>
+//             ) : (
+//                 <h1>Not Good</h1>
+//             )}
+//         </div>
+//     );
+// };
+// export default ProvinceList;
 const ProvinceList = () => {
-    // Assuming you have a component function where you get the country name from some source
-    // For demonstration purposes, let's assume you have a hardcoded country name here
-    const countryName = "Nepal"; // You can replace this with your actual country name source
-    // Get the processed value from the handleCountryValue function
-    const processedValue = handleCountryValue(countryName);
-    // Determine the message to display based on the processed value
-    const message = processedValue === "Nepal" ? "Good" : "Not Good";
-    return (React.createElement("div", null,
-        React.createElement("h1", null, message)));
+    const selectedCountry = handleCountryValue(""); // Pass any default value if needed
+    // Check if the selected country is "Nepal"
+    const isGoodCountry = selectedCountry === "Nepal";
+    return (React.createElement("div", null, isGoodCountry ? React.createElement("h1", null, "Good") : React.createElement("h1", null, "Bad")));
 };
 
 exports.CountryList = CountryList;
