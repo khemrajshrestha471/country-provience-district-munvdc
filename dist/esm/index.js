@@ -4064,5 +4064,10 @@ const CountryList = () => {
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
 
-export { CountryList };
+const ProvienceList = () => {
+    return (React.createElement(React.Fragment, null,
+        React.createElement("h1", null, "This is provience 1")));
+};
+
+export { CountryList, ProvienceList };
 //# sourceMappingURL=index.js.map
