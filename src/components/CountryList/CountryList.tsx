@@ -38,7 +38,6 @@
 
 // import React, { useState } from 'react';
 // import countries from "../../assets/countries.json";
-// import ProvinceList from '../ProvienceList/ProvienceList';
 // interface Country {
 //     country_name: string; 
 // }
@@ -59,7 +58,6 @@
 //                     </option>
 //                 ))}
 //             </select>
-//             <ProvinceList countryName={selectedCountry} />
 //         </div>
 //     );
 // };
@@ -68,23 +66,27 @@
 
 
 
+
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
-import ProvinceList from '../ProvienceList/ProvienceList';
 interface Country {
     country_name: string; 
 }
 
-const CountryList = () => {
+interface Props {
+    onCountryChange: (isNepal: boolean) => void;
+}
+
+const CountryList: React.FC<Props> = ({ onCountryChange }) => {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
 
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedCountry(event.target.value);
-    };
-
-    // Define props object
-    const provinceListProps = {
-        countryName: selectedCountry
+        const selectedCountryName = event.target.value;
+        setSelectedCountry(selectedCountryName);
+        // Check if the selected country is "Nepal"
+        const isNepal = selectedCountryName === "Nepal";
+        // Call the callback function with the result
+        onCountryChange(isNepal);
     };
 
     return (
@@ -97,13 +99,14 @@ const CountryList = () => {
                     </option>
                 ))}
             </select>
-            {/* Conditionally pass props */}
-            {selectedCountry && ProvinceList(provinceListProps)}
         </div>
     );
 };
 
 export default CountryList;
+
+
+
 
 
 
