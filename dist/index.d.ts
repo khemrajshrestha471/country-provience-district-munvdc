@@ -1,10 +1,10 @@
 import React from 'react';
 
-declare const CountryList: () => React.JSX.Element;
-
 interface Props {
-    countryName: string;
+    onCountryChange: (isNepal: boolean) => void;
 }
-declare const ProvinceList: React.FC<Props>;
+declare const CountryList: React.FC<Props>;
+
+declare const ProvinceList: () => React.JSX.Element;
 
 export { CountryList, ProvinceList as ProvienceList };

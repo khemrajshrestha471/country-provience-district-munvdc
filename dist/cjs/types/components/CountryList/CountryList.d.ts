@@ -1,3 +1,6 @@
 import React from 'react';
-declare const CountryList: () => React.JSX.Element;
+interface Props {
+    onCountryChange: (isNepal: boolean) => void;
+}
+declare const CountryList: React.FC<Props>;
 export default CountryList;
