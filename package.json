@@ -1,0 +1,16 @@
+{
+  "name": "country-provience-district-munvdc",
+  "version": "1.0.0",
+  "description": "A complete npm package of react component for conditional selection of provience, district, mun/vdc based on country",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Khemraj Shrestha (www.khemrajshrestha.com.np)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.77",
+    "react": "^18.2.0",
+    "typescript": "^5.4.5"
+  }
+}
