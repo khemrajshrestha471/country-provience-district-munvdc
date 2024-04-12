@@ -1255,6 +1255,15 @@ var countries = [
 	}
 ];
 
+// SelectedCountryStorage.ts
+let selectedCountry = "";
+const setSelectedCountryStorage = (country) => {
+    selectedCountry = country;
+};
+const getSelectedCountry = () => {
+    return selectedCountry;
+};
+
 // import React from 'react';
 // import countries from "../../assets/countries.json";
 // import ProvinceList from '../ProvienceList/ProvienceList';
@@ -1281,73 +1290,18 @@ var countries = [
 //     );
 // };
 // export default CountryList;
-// "use client";
-// import React, { useState } from 'react';
-// import countries from "../../assets/countries.json";
-// interface Country {
-//     country_name: string; 
-// }
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleCountryChange}>
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//         </div>
-//     );
-// };
-// export default CountryList;
-const CountryList = ({ onCountryChange }) => {
+const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = React.useState("");
     const handleCountryChange = (event) => {
-        const selectedCountryName = event.target.value;
-        setSelectedCountry(selectedCountryName);
-        // Check if the selected country is "Nepal"
-        const isNepal = selectedCountryName === "Nepal";
-        // Call the callback function with the result
-        onCountryChange(isNepal);
+        const countryName = event.target.value;
+        setSelectedCountry(countryName);
+        setSelectedCountryStorage(countryName);
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleCountryChange },
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
-// import { useState } from 'react';
-// import React from 'react';
-// import countries from "../../assets/countries.json";
-// interface Country {
-//     country_name: string; // defining types of country_name for typescript
-// }
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = useState<string>(""); // state variable to store selected country value
-//     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => { // this function trigger when value select in select field
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select value={selectedCountry} onChange={handleChange}>
-//             {/* <select> */}
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//             {selectedCountry && <p>Selected country: {selectedCountry}</p>}
-//         </div>
-//     );
-// };
-// export default CountryList;
 
 // import React from "react"
 // const ProvinceList = () => {
@@ -1385,13 +1339,10 @@ const CountryList = ({ onCountryChange }) => {
 //     );
 // };
 // export default ProvinceList;
+// DisplayCountryStatus.tsx
 const ProvinceList = () => {
-    const [isNepal, setIsNepal] = React.useState(false);
-    const handleCountryChange = (isNepal) => {
-        setIsNepal(isNepal);
-    };
-    return (React.createElement("div", null,
-        React.createElement(CountryList, { onCountryChange: handleCountryChange })));
+    const selectedCountry = getSelectedCountry();
+    return (React.createElement("div", null, selectedCountry === "Nepal" ? (React.createElement("h1", null, "Good")) : (React.createElement("h1", null, "Not Good"))));
 };
 
 exports.CountryList = CountryList;
