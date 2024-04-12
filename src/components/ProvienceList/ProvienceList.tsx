@@ -49,22 +49,28 @@
 
 
 
-// DisplayCountryStatus.tsx
+// CountryDisplay.tsx
+
 import React from 'react';
-import { getSelectedCountry } from '../CountryList/SelectedCountryStorage'; // Adjust the path accordingly
+import { handleCountryValue } from '../CountryList/CountryHandler'; // Importing the function
 
 const ProvinceList = () => {
-    const selectedCountry = getSelectedCountry();
+    // Assuming you have a component function where you get the country name from some source
+    // For demonstration purposes, let's assume you have a hardcoded country name here
+    const countryName = "Nepal"; // You can replace this with your actual country name source
+
+    // Get the processed value from the handleCountryValue function
+    const processedValue = handleCountryValue(countryName);
+
+    // Determine the message to display based on the processed value
+    const message = processedValue === "Nepal" ? "Good" : "Not Good";
 
     return (
         <div>
-            {selectedCountry === "Nepal" ? (
-                <h1>Good</h1>
-            ) : (
-                <h1>Not Good</h1>
-            )}
+            <h1>{message}</h1>
         </div>
     );
 };
 
 export default ProvinceList;
+

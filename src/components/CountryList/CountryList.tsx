@@ -35,10 +35,10 @@
 
 
 "use client";
-
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
-import { setSelectedCountryStorage } from './SelectedCountryStorage';
+import { handleCountryValue } from './CountryHandler';
+
 interface Country {
     country_name: string; 
 }
@@ -47,9 +47,8 @@ const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
 
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const countryName = event.target.value;
-        setSelectedCountry(countryName);
-        setSelectedCountryStorage(countryName);
+        setSelectedCountry(event.target.value);
+        const processedValue = handleCountryValue(event.target.value);
     };
     return (
         <div>
@@ -66,7 +65,6 @@ const CountryList = () => {
 };
 
 export default CountryList;
-
 
 
 
