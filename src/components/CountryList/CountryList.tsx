@@ -67,6 +67,7 @@
 // export default CountryList;
 
 
+
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
 import ProvinceList from '../ProvienceList/ProvienceList';
@@ -96,13 +97,14 @@ const CountryList = () => {
                     </option>
                 ))}
             </select>
-            {/* Pass props using spread operator */}
-            {selectedCountry && <ProvinceList {...provinceListProps} />}
+            {/* Conditionally pass props */}
+            {selectedCountry && ProvinceList(provinceListProps)}
         </div>
     );
 };
 
 export default CountryList;
+
 
 
 
