@@ -1253,11 +1253,6 @@ var countries = [
 	}
 ];
 
-// handleCountryValue.ts
-const handleCountryValue = (selectedCountry) => {
-    return selectedCountry;
-};
-
 // import React from 'react';
 // import countries from "../../assets/countries.json";
 // import ProvinceList from '../ProvienceList/ProvienceList';
@@ -1284,7 +1279,7 @@ const handleCountryValue = (selectedCountry) => {
 //     );
 // };
 // export default CountryList;
-const CountryList = () => {
+const CountryList$1 = () => {
     const [selectedCountry, setSelectedCountry] = useState("");
     const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);
@@ -1294,6 +1289,44 @@ const CountryList = () => {
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
+
+var provinces = [
+	{
+		id: 1,
+		province_name_en: "State No. 1",
+		province_name_np: "प्रदेश नं. १"
+	},
+	{
+		id: 2,
+		province_name_en: "Madhesh",
+		province_name_np: "मधेश"
+	},
+	{
+		id: 3,
+		province_name_en: "Bagmati",
+		province_name_np: "बागमती"
+	},
+	{
+		id: 4,
+		province_name_en: "Gandaki",
+		province_name_np: "गण्डकी"
+	},
+	{
+		id: 5,
+		province_name_en: "Lumbini",
+		province_name_np: "लुम्बिनी"
+	},
+	{
+		id: 6,
+		province_name_en: "Karnali",
+		province_name_np: "कर्णाली"
+	},
+	{
+		id: 7,
+		province_name_en: "Sudurpashchim",
+		province_name_np: "सुदूरपश्चिम"
+	}
+];
 
 // import React from "react"
 // const ProvinceList = () => {
@@ -1331,28 +1364,16 @@ const CountryList = () => {
 //     );
 // };
 // export default ProvinceList;
-// DisplayCountryStatus.tsx
-// import React from 'react';
-// import { handleCountryValue } from '../CountryList/CountryHandler';
-// const ProvinceList = () => {
-//     const selectedCountry = handleCountryValue();
-//     return (
-//         <div>
-//             {selectedCountry === "Nepal" ? (
-//                 <h1>Good</h1>
-//             ) : (
-//                 <h1>Not Good</h1>
-//             )}
-//         </div>
-//     );
-// };
-// export default ProvinceList;
-const ProvinceList = () => {
-    const selectedCountry = handleCountryValue(""); // Pass any default value if needed
-    // Check if the selected country is "Nepal"
-    const isGoodCountry = selectedCountry === "Nepal";
-    return (React.createElement("div", null, isGoodCountry ? React.createElement("h1", null, "Good") : React.createElement("h1", null, "Bad")));
+const CountryList = () => {
+    const [selectedProvince, setSelectedProvince] = useState("");
+    const handleProvinceChange = (event) => {
+        setSelectedProvince(event.target.value);
+    };
+    return (React.createElement("div", null,
+        React.createElement("select", { onChange: handleProvinceChange },
+            React.createElement("option", { value: "" }, "Province"),
+            provinces.map((province) => (React.createElement("option", { key: province.id, value: province.province_name_en }, province.province_name_en))))));
 };
 
-export { CountryList, ProvinceList as ProvienceList };
+export { CountryList$1 as CountryList, CountryList as ProvienceList };
 //# sourceMappingURL=index.js.map
