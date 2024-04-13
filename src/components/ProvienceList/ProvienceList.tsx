@@ -49,44 +49,33 @@
 
 
 
-// DisplayCountryStatus.tsx
-// import React from 'react';
-// import { handleCountryValue } from '../CountryList/CountryHandler';
+"use client";
+import React, { useState } from 'react';
+import provinces from "../../assets/province.json";
 
-// const ProvinceList = () => {
-//     const selectedCountry = handleCountryValue();
+interface Province {
+    id: number; 
+    province_name_en: string;
+}
 
-//     return (
-//         <div>
-//             {selectedCountry === "Nepal" ? (
-//                 <h1>Good</h1>
-//             ) : (
-//                 <h1>Not Good</h1>
-//             )}
-//         </div>
-//     );
-// };
+const CountryList = () => {
+    const [selectedProvince, setSelectedProvince] = useState<string>("");
 
-// export default ProvinceList;
-
-
-
-import React from 'react';
-import handleCountryValue from '../CountryList/CountryHandler'; // Importing the function
-
-const ProvinceList = () => {
-    const selectedCountry = handleCountryValue(""); // Pass any default value if needed
-
-    // Check if the selected country is "Nepal"
-    const isGoodCountry = selectedCountry === "Nepal";
-
+    const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedProvince(event.target.value);
+    };
     return (
         <div>
-            {/* Display "Good" or "Bad" based on the selected country */}
-            {isGoodCountry ? <h1>Good</h1> : <h1>Bad</h1>}
+            <select onChange={handleProvinceChange}>
+                <option value="">Province</option>
+                {provinces.map((province: Province) => (
+                    <option key={province.id} value={province.province_name_en}>
+                        {province.province_name_en}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 };
 
-export default ProvinceList;
-
+export default CountryList;
