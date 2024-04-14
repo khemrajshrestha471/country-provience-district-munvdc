@@ -1,3 +1,5 @@
 import React from 'react';
-declare const CountryList: () => React.JSX.Element;
+declare const CountryList: ({ onCountrySelect }: {
+    onCountrySelect: (country: string) => void;
+}) => React.JSX.Element;
 export default CountryList;
