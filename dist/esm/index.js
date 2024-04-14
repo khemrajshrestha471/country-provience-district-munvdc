@@ -6282,7 +6282,7 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
     const [filteredMunVdc, setFilteredMunVdc] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
-        if (selectedDistrictId && selectedProvinceId) {
+        if (selectedDistrictId) {
             const filtered = munvdcs.filter(munvdc => munvdc.district_id === String(selectedDistrictId));
             setFilteredMunVdc(filtered);
             setIsDisabled(false);
@@ -6291,7 +6291,13 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
             setIsDisabled(true);
             setSelectedMunVdc("");
         }
-    }, [selectedDistrictId, selectedProvinceId]);
+    }, [selectedDistrictId]);
+    useEffect(() => {
+        if (selectedProvinceId != 0) {
+            setIsDisabled(true);
+            setSelectedMunVdc("");
+        }
+    }, [selectedProvinceId]);
     const handleMunVdcChange = (event) => {
         const selectedMunVdcName = event.target.value;
         setSelectedMunVdc(selectedMunVdcName);
