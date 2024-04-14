@@ -6277,12 +6277,12 @@ var munvdcs = [
 	}
 ];
 
-const MunVdcList = ({ selectedDistrictId }) => {
+const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
     const [selectedMunVdc, setSelectedMunVdc] = useState("");
     const [filteredMunVdc, setFilteredMunVdc] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
-        if (selectedDistrictId) {
+        if (selectedDistrictId && selectedProvinceId) {
             const filtered = munvdcs.filter(munvdc => munvdc.district_id === String(selectedDistrictId));
             setFilteredMunVdc(filtered);
             setIsDisabled(false);
@@ -6291,7 +6291,7 @@ const MunVdcList = ({ selectedDistrictId }) => {
             setIsDisabled(true);
             setSelectedMunVdc("");
         }
-    }, [selectedDistrictId]);
+    }, [selectedDistrictId, selectedProvinceId]);
     const handleMunVdcChange = (event) => {
         const selectedMunVdcName = event.target.value;
         setSelectedMunVdc(selectedMunVdcName);
@@ -6336,7 +6336,7 @@ const DistrictList = ({ selectedProvinceId }) => {
         React.createElement("select", { disabled: isDisabled, value: selectedDistrict, onChange: handleDistrictChange },
             React.createElement("option", { value: "" }, "District"),
             filteredDistricts.map((district) => (React.createElement("option", { key: district.district_id, value: district.district_name_en }, district.district_name_en)))),
-        React.createElement(MunVdcList, { selectedDistrictId: selectedDistrictId })));
+        React.createElement(MunVdcList, { selectedDistrictId: selectedDistrictId, selectedProvinceId: selectedProvinceId })));
 };
 
 // import React from "react"
