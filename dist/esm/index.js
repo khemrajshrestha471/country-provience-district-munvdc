@@ -1291,6 +1291,496 @@ var provinces = [
 	}
 ];
 
+var districts = [
+	{
+		district_id: "1",
+		province_id: "1",
+		district_name_en: "Taplejung",
+		district_name_np: "ताप्लेजुङ"
+	},
+	{
+		district_id: "2",
+		province_id: "1",
+		district_name_en: "Panchthar",
+		district_name_np: "पाँचथर"
+	},
+	{
+		district_id: "3",
+		province_id: "1",
+		district_name_en: "Ilam",
+		district_name_np: "इलाम"
+	},
+	{
+		district_id: "4",
+		province_id: "1",
+		district_name_en: "Sankhuwasabha",
+		district_name_np: "संखुवासभा"
+	},
+	{
+		district_id: "5",
+		province_id: "1",
+		district_name_en: "Tehrathum",
+		district_name_np: "तेह्रथुम"
+	},
+	{
+		district_id: "6",
+		province_id: "1",
+		district_name_en: "Dhankuta",
+		district_name_np: "धनकुटा"
+	},
+	{
+		district_id: "7",
+		province_id: "1",
+		district_name_en: "Bhojpur",
+		district_name_np: "भोजपुर"
+	},
+	{
+		district_id: "8",
+		province_id: "1",
+		district_name_en: "Khotang",
+		district_name_np: "खोटाङ"
+	},
+	{
+		district_id: "9",
+		province_id: "1",
+		district_name_en: "Solukhumbu",
+		district_name_np: "सोलुखुम्बु"
+	},
+	{
+		district_id: "10",
+		province_id: "1",
+		district_name_en: "Okhaldhunga",
+		district_name_np: "ओखलढुङ्गा"
+	},
+	{
+		district_id: "11",
+		province_id: "1",
+		district_name_en: "Udayapur",
+		district_name_np: "उदयपुर"
+	},
+	{
+		district_id: "12",
+		province_id: "1",
+		district_name_en: "Jhapa",
+		district_name_np: "झापा"
+	},
+	{
+		district_id: "13",
+		province_id: "1",
+		district_name_en: "Morang",
+		district_name_np: "मोरङ"
+	},
+	{
+		district_id: "14",
+		province_id: "1",
+		district_name_en: "Sunsari",
+		district_name_np: "सुनसरी"
+	},
+	{
+		district_id: "15",
+		province_id: "2",
+		district_name_en: "Saptari",
+		district_name_np: "सप्तरी"
+	},
+	{
+		district_id: "16",
+		province_id: "2",
+		district_name_en: "Siraha",
+		district_name_np: "सिराहा"
+	},
+	{
+		district_id: "17",
+		province_id: "2",
+		district_name_en: "Dhanusha",
+		district_name_np: "धनुषा"
+	},
+	{
+		district_id: "18",
+		province_id: "2",
+		district_name_en: "Mahottari",
+		district_name_np: "महोत्तरी"
+	},
+	{
+		district_id: "19",
+		province_id: "2",
+		district_name_en: "Sarlahi",
+		district_name_np: "सर्लाही"
+	},
+	{
+		district_id: "20",
+		province_id: "2",
+		district_name_en: "Rautahat",
+		district_name_np: "रौतहट"
+	},
+	{
+		district_id: "21",
+		province_id: "2",
+		district_name_en: "Bara",
+		district_name_np: "बारा"
+	},
+	{
+		district_id: "22",
+		province_id: "2",
+		district_name_en: "Parsa",
+		district_name_np: "पर्सा"
+	},
+	{
+		district_id: "23",
+		province_id: "3",
+		district_name_en: "Dolakha",
+		district_name_np: "दोलखा"
+	},
+	{
+		district_id: "24",
+		province_id: "3",
+		district_name_en: "Ramechhap",
+		district_name_np: "रामेछाप"
+	},
+	{
+		district_id: "25",
+		province_id: "3",
+		district_name_en: "Sindhuli",
+		district_name_np: "सिन्धुली"
+	},
+	{
+		district_id: "26",
+		province_id: "3",
+		district_name_en: "Kavrepalanchock",
+		district_name_np: "काभ्रेपलाञ्चोक"
+	},
+	{
+		district_id: "27",
+		province_id: "3",
+		district_name_en: "Sindhupalchowk",
+		district_name_np: "सिन्धुपाल्चोक"
+	},
+	{
+		district_id: "28",
+		province_id: "3",
+		district_name_en: "Rasuwa",
+		district_name_np: "रसुवा"
+	},
+	{
+		district_id: "29",
+		province_id: "3",
+		district_name_en: "Nuwakot",
+		district_name_np: "नुवाकोट"
+	},
+	{
+		district_id: "30",
+		province_id: "3",
+		district_name_en: "Dhading",
+		district_name_np: "धादिङ"
+	},
+	{
+		district_id: "31",
+		province_id: "3",
+		district_name_en: "Chitwan",
+		district_name_np: "चितवन"
+	},
+	{
+		district_id: "32",
+		province_id: "3",
+		district_name_en: "Makawanpur",
+		district_name_np: "मकवानपुर"
+	},
+	{
+		district_id: "33",
+		province_id: "3",
+		district_name_en: "Bhaktapur",
+		district_name_np: "भक्तपुर"
+	},
+	{
+		district_id: "34",
+		province_id: "3",
+		district_name_en: "Lalitpur",
+		district_name_np: "ललितपुर"
+	},
+	{
+		district_id: "35",
+		province_id: "3",
+		district_name_en: "Kathmandu",
+		district_name_np: "काठमाडौं"
+	},
+	{
+		district_id: "36",
+		province_id: "4",
+		district_name_en: "Gorkha",
+		district_name_np: "गोरखा"
+	},
+	{
+		district_id: "37",
+		province_id: "4",
+		district_name_en: "Lamjung",
+		district_name_np: "लमजुङ"
+	},
+	{
+		district_id: "38",
+		province_id: "4",
+		district_name_en: "Tanahun",
+		district_name_np: "तनहुँ"
+	},
+	{
+		district_id: "39",
+		province_id: "4",
+		district_name_en: "Kaski",
+		district_name_np: "कास्की"
+	},
+	{
+		district_id: "40",
+		province_id: "4",
+		district_name_en: "Manang",
+		district_name_np: "मनाङ"
+	},
+	{
+		district_id: "41",
+		province_id: "4",
+		district_name_en: "Mustang",
+		district_name_np: "मुस्ताङ"
+	},
+	{
+		district_id: "42",
+		province_id: "4",
+		district_name_en: "Parbat",
+		district_name_np: "पर्वत"
+	},
+	{
+		district_id: "43",
+		province_id: "4",
+		district_name_en: "Syangja",
+		district_name_np: "स्याङ्जा"
+	},
+	{
+		district_id: "44",
+		province_id: "4",
+		district_name_en: "Myagdi",
+		district_name_np: "म्याग्दी"
+	},
+	{
+		district_id: "45",
+		province_id: "4",
+		district_name_en: "Baglung",
+		district_name_np: "बागलुङ"
+	},
+	{
+		district_id: "46",
+		province_id: "4",
+		district_name_en: "Nawalparasi (East of Bardaghat Susta)",
+		district_name_np: "नवलपरासी (बर्दघाट सुस्ता पूर्व)"
+	},
+	{
+		district_id: "47",
+		province_id: "5",
+		district_name_en: "Nawalparasi (West of Bardaghat Susta)",
+		district_name_np: " नवलपरासी (बर्दघाट सुस्ता पश्चिम)"
+	},
+	{
+		district_id: "48",
+		province_id: "5",
+		district_name_en: "Rupandehi",
+		district_name_np: "रुपन्देही"
+	},
+	{
+		district_id: "49",
+		province_id: "5",
+		district_name_en: "Kapilvastu",
+		district_name_np: "कपिलवस्तु"
+	},
+	{
+		district_id: "50",
+		province_id: "5",
+		district_name_en: "Palpa",
+		district_name_np: "पाल्पा"
+	},
+	{
+		district_id: "51",
+		province_id: "5",
+		district_name_en: "Arghakhanchi",
+		district_name_np: "अर्घाखाँची"
+	},
+	{
+		district_id: "52",
+		province_id: "5",
+		district_name_en: "Gulmi",
+		district_name_np: "गुल्मी"
+	},
+	{
+		district_id: "53",
+		province_id: "5",
+		district_name_en: "Rukum (Eastern Part)",
+		district_name_np: " रुकुम (पूर्वी भाग)"
+	},
+	{
+		district_id: "54",
+		province_id: "5",
+		district_name_en: "Rolpa",
+		district_name_np: "रोल्पा"
+	},
+	{
+		district_id: "55",
+		province_id: "5",
+		district_name_en: "Pyuthan",
+		district_name_np: "प्युठान"
+	},
+	{
+		district_id: "56",
+		province_id: "5",
+		district_name_en: "Dang",
+		district_name_np: "दाङ"
+	},
+	{
+		district_id: "57",
+		province_id: "5",
+		district_name_en: "Banke",
+		district_name_np: "बाँके"
+	},
+	{
+		district_id: "58",
+		province_id: "5",
+		district_name_en: "Bardiya",
+		district_name_np: "बर्दिया"
+	},
+	{
+		district_id: "59",
+		province_id: "6",
+		district_name_en: "Rukum (Western Part)",
+		district_name_np: "रुकुम (पश्चिम भाग)"
+	},
+	{
+		district_id: "60",
+		province_id: "6",
+		district_name_en: "Salyan",
+		district_name_np: "सल्यान"
+	},
+	{
+		district_id: "61",
+		province_id: "6",
+		district_name_en: "Dolpa",
+		district_name_np: "डोल्पा"
+	},
+	{
+		district_id: "62",
+		province_id: "6",
+		district_name_en: "Jumla",
+		district_name_np: "जुम्ला"
+	},
+	{
+		district_id: "63",
+		province_id: "6",
+		district_name_en: "Mugu",
+		district_name_np: "मुगु"
+	},
+	{
+		district_id: "64",
+		province_id: "6",
+		district_name_en: "Humla",
+		district_name_np: "हुम्ला"
+	},
+	{
+		district_id: "65",
+		province_id: "6",
+		district_name_en: "Kalikot",
+		district_name_np: "कालिकोट"
+	},
+	{
+		district_id: "66",
+		province_id: "6",
+		district_name_en: "Jajarkot",
+		district_name_np: "जाजरकोट"
+	},
+	{
+		district_id: "67",
+		province_id: "6",
+		district_name_en: "Dailekh",
+		district_name_np: "दैलेख"
+	},
+	{
+		district_id: "68",
+		province_id: "6",
+		district_name_en: "Surkhet",
+		district_name_np: "सुर्खेत"
+	},
+	{
+		district_id: "69",
+		province_id: "7",
+		district_name_en: "Bajura",
+		district_name_np: "बाजुरा"
+	},
+	{
+		district_id: "70",
+		province_id: "7",
+		district_name_en: "Bajhang",
+		district_name_np: "बझाङ"
+	},
+	{
+		district_id: "71",
+		province_id: "7",
+		district_name_en: "Doti",
+		district_name_np: "डोटी"
+	},
+	{
+		district_id: "72",
+		province_id: "7",
+		district_name_en: "Achham",
+		district_name_np: "अछाम"
+	},
+	{
+		district_id: "73",
+		province_id: "7",
+		district_name_en: "Darchula",
+		district_name_np: "दार्चुला"
+	},
+	{
+		district_id: "74",
+		province_id: "7",
+		district_name_en: "Baitadi",
+		district_name_np: "बैतडी"
+	},
+	{
+		district_id: "75",
+		province_id: "7",
+		district_name_en: "Dadeldhura",
+		district_name_np: "डडेल्धुरा"
+	},
+	{
+		district_id: "76",
+		province_id: "7",
+		district_name_en: "Kanchanpur",
+		district_name_np: "कञ्चनपुर"
+	},
+	{
+		district_id: "77",
+		province_id: "7",
+		district_name_en: "Kailali",
+		district_name_np: "कैलाली"
+	}
+];
+
+const DistrictList = ({ selectedProvinceId }) => {
+    const [selectedDistrict, setSelectedDistrict] = useState("");
+    const [filteredDistricts, setFilteredDistricts] = useState([]);
+    const [isDisabled, setIsDisabled] = useState(true);
+    useEffect(() => {
+        if (selectedProvinceId) {
+            const filtered = districts.filter(district => district.province_id === String(selectedProvinceId));
+            setFilteredDistricts(filtered);
+            setIsDisabled(false);
+        }
+        else {
+            setIsDisabled(true);
+            setSelectedDistrict("");
+        }
+    }, [selectedProvinceId]);
+    const handleDistrictChange = (event) => {
+        const selectedDistrictName = event.target.value;
+        setSelectedDistrict(selectedDistrictName);
+    };
+    return (React.createElement("div", null,
+        React.createElement("select", { disabled: isDisabled, value: selectedDistrict, onChange: handleDistrictChange },
+            React.createElement("option", { value: "" }, "District"),
+            filteredDistricts.map((district) => (React.createElement("option", { key: district.district_id, value: district.district_name_en }, district.district_name_en))))));
+};
+
 // import React from "react"
 // const ProvinceList = () => {
 //     return (
@@ -1354,6 +1844,7 @@ var provinces = [
 // };
 // export default ProvinceList;
 const ProvinceList = ({ selectedCountry }) => {
+    const [selectedProvinceId, setSelectedProvinceId] = useState();
     const [selectedProvince, setSelectedProvince] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
@@ -1363,15 +1854,26 @@ const ProvinceList = ({ selectedCountry }) => {
         else {
             setIsDisabled(true);
             setSelectedProvince("");
+            setSelectedProvinceId(0);
         }
     }, [selectedCountry]);
     const handleProvinceChange = (event) => {
-        setSelectedProvince(event.target.value);
+        const selectedProvinceName = event.target.value;
+        const foundProvince = provinces.find(province => province.province_name_en === selectedProvinceName);
+        if (foundProvince) {
+            setSelectedProvinceId(foundProvince.id);
+            setSelectedProvince(selectedProvinceName);
+        }
+        else {
+            setSelectedProvinceId(0);
+            setSelectedProvince("");
+        }
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleProvinceChange, disabled: isDisabled, value: selectedProvince },
             React.createElement("option", { value: "" }, "Province"),
-            provinces.map((province) => (React.createElement("option", { key: province.id, value: province.province_name_en }, province.province_name_en))))));
+            provinces.map((province) => (React.createElement("option", { key: province.id, value: province.province_name_en }, province.province_name_en)))),
+        React.createElement(DistrictList, { selectedProvinceId: selectedProvinceId })));
 };
 
 // import React from 'react';
@@ -1431,7 +1933,7 @@ const CountryList = () => {
         setSelectedCountry(event.target.value);
     };
     return (React.createElement("div", null,
-        React.createElement("select", { onChange: handleCountryChange },
+        React.createElement("select", { onChange: handleCountryChange, value: selectedCountry },
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name)))),
         React.createElement(ProvinceList, { selectedCountry: selectedCountry })));
