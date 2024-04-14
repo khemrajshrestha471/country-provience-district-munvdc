@@ -10,4 +10,8 @@ declare const DistrictList: ({ selectedProvinceId }: {
     selectedProvinceId: number;
 }) => React.JSX.Element;
 
-export { CountryList, DistrictList, ProvinceList };
+declare const MunVdcList: ({ selectedDistrictId }: {
+    selectedDistrictId: number;
+}) => React.JSX.Element;
+
+export { CountryList, DistrictList, MunVdcList, ProvinceList };
