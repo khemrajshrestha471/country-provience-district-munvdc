@@ -1255,12 +1255,12 @@ var countries = [
 	}
 ];
 
-const CountryList = ({ onCountrySelect }) => {
+const CountryList = ({ onCountrySelect, }) => {
     const [selectedCountry, setSelectedCountry] = React.useState("");
     const handleCountryChange = (event) => {
         const selectedCountryName = event.target.value;
         setSelectedCountry(selectedCountryName);
-        onCountrySelect(selectedCountryName);
+        onCountrySelect(selectedCountryName); // send selected country to the user side which can be taken as a props and can console log the selected country
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleCountryChange, value: selectedCountry },
@@ -1306,7 +1306,10 @@ var provinces = [
 	}
 ];
 
-const ProvinceList = ({ selectedCountry, setSelectedProvinceId, onProvinceSelect }) => {
+const ProvinceList = ({ selectedCountry, setSelectedProvinceId, onProvinceSelect, }) => {
+    // selectedCountry is send as for only Nepal the province field should be enable
+    // setSelectedProvinceId is send because for particular province, the select option should be render
+    // onProvinceSelect is send because user can console log the selected province from user side
     const [selectedProvince, setSelectedProvince] = React.useState("");
     const [isDisabled, setIsDisabled] = React.useState(true);
     React.useEffect(() => {
@@ -1319,10 +1322,12 @@ const ProvinceList = ({ selectedCountry, setSelectedProvinceId, onProvinceSelect
             setIsDisabled(false);
         }
     }, [selectedCountry]);
+    // useEffect is used here as it should re-render the code as soon as the value in country select field is changed
     const handleProvinceChange = (event) => {
         const selectedProvinceName = event.target.value;
         onProvinceSelect(selectedProvinceName);
-        const foundProvince = provinces.find(province => province.province_name_en === selectedProvinceName);
+        const foundProvince = provinces.find((province) => province.province_name_en === selectedProvinceName);
+        // conditionally render the Province field option for selected country i.e Nepal
         if (foundProvince) {
             setSelectedProvinceId(foundProvince.id);
             setSelectedProvince(selectedProvinceName);
@@ -1803,13 +1808,16 @@ var districts = [
 	}
 ];
 
-const DistrictList = ({ selectedProvinceId, setSelectedDistrictId, onDistrictSelect }) => {
+const DistrictList = ({ selectedProvinceId, setSelectedDistrictId, onDistrictSelect, }) => {
+    // selectedProvinceId is send because for particular province, the select option should be render
+    // setSelectedDistrictId is send because for particular district, the select option should be render
+    // onDistrictSelect is send because user can console log the selected district from user side
     const [selectedDistrict, setSelectedDistrict] = React.useState("");
     const [filteredDistricts, setFilteredDistricts] = React.useState([]);
     const [isDisabled, setIsDisabled] = React.useState(true);
     React.useEffect(() => {
         if (selectedProvinceId) {
-            const filtered = districts.filter(district => district.province_id === String(selectedProvinceId));
+            const filtered = districts.filter((district) => district.province_id === String(selectedProvinceId));
             setFilteredDistricts(filtered);
             setIsDisabled(false);
         }
@@ -1822,7 +1830,7 @@ const DistrictList = ({ selectedProvinceId, setSelectedDistrictId, onDistrictSel
     const handleDistrictChange = (event) => {
         const selectedDistrictName = event.target.value;
         onDistrictSelect(selectedDistrictName);
-        const foundDistrict = districts.find(district => district.district_name_en === selectedDistrictName);
+        const foundDistrict = districts.find((district) => district.district_name_en === selectedDistrictName);
         if (foundDistrict) {
             setSelectedDistrictId(foundDistrict.district_id);
             setSelectedDistrict(selectedDistrictName);
@@ -6359,13 +6367,16 @@ var munvdcs = [
 	}
 ];
 
-const MunVdcList = ({ selectedDistrictId, selectedProvinceId, onMunVdcSelect }) => {
+const MunVdcList = ({ selectedDistrictId, selectedProvinceId, onMunVdcSelect, }) => {
+    // selectedDistrictId is send because for particular district, the select option should be render
+    // selectedProvinceId is send because for particular province, district is render and for particular district the mun-vdc is render
+    // onMunVdcSelect is send because user can console log the selected Mun-Vdc from user side
     const [selectedMunVdc, setSelectedMunVdc] = React.useState("");
     const [filteredMunVdc, setFilteredMunVdc] = React.useState([]);
     const [isDisabled, setIsDisabled] = React.useState(true);
     React.useEffect(() => {
         if (selectedDistrictId) {
-            const filtered = munvdcs.filter(munvdc => munvdc.district_id === String(selectedDistrictId));
+            const filtered = munvdcs.filter((munvdc) => munvdc.district_id === String(selectedDistrictId));
             setFilteredMunVdc(filtered);
             setIsDisabled(false);
         }
@@ -6380,6 +6391,7 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId, onMunVdcSelect }) 
             setSelectedMunVdc("");
         }
     }, [selectedProvinceId]);
+    // This useEffect is used as to reset the value of Mun/Vdc when province value is changed
     const handleMunVdcChange = (event) => {
         const selectedMunVdcName = event.target.value;
         onMunVdcSelect(selectedMunVdcName);
