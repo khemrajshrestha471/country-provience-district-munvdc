@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 var countries = [
 	{
@@ -1253,43 +1253,6 @@ var countries = [
 	}
 ];
 
-// import React from 'react';
-// import countries from "../../assets/countries.json";
-// import ProvinceList from '../ProvienceList/ProvienceList';
-// interface Country {
-//     country_name: string; 
-// }
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = React.useState<string>("");
-//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleCountryChange}>
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//             <ProvinceList countryName={selectedCountry} />
-//         </div>
-//     );
-// };
-// export default CountryList;
-const CountryList$1 = () => {
-    const [selectedCountry, setSelectedCountry] = useState("");
-    const handleCountryChange = (event) => {
-        setSelectedCountry(event.target.value);
-    };
-    return (React.createElement("div", null,
-        React.createElement("select", { onChange: handleCountryChange },
-            React.createElement("option", { value: "" }, "Country"),
-            countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
-};
-
 var provinces = [
 	{
 		id: 1,
@@ -1364,16 +1327,115 @@ var provinces = [
 //     );
 // };
 // export default ProvinceList;
-const CountryList = () => {
+// "use client";
+// import React, { useState } from 'react';
+// import provinces from "../../assets/province.json";
+// interface Province {
+//     id: number; 
+//     province_name_en: string;
+// }
+// const ProvinceList = () => {
+//     const [selectedProvince, setSelectedProvince] = useState<string>("");
+//     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedProvince(event.target.value);
+//     };
+//     return (
+//         <div>
+//             <select onChange={handleProvinceChange}>
+//                 <option value="">Province</option>
+//                 {provinces.map((province: Province) => (
+//                     <option key={province.id} value={province.province_name_en}>
+//                         {province.province_name_en}
+//                     </option>
+//                 ))}
+//             </select>
+//         </div>
+//     );
+// };
+// export default ProvinceList;
+const ProvinceList = ({ selectedCountry }) => {
     const [selectedProvince, setSelectedProvince] = useState("");
+    const [isDisabled, setIsDisabled] = useState(true);
+    useEffect(() => {
+        if (selectedCountry === "Nepal") {
+            setIsDisabled(false);
+        }
+        else {
+            setIsDisabled(true);
+            setSelectedProvince("");
+        }
+    }, [selectedCountry]);
     const handleProvinceChange = (event) => {
         setSelectedProvince(event.target.value);
     };
     return (React.createElement("div", null,
-        React.createElement("select", { onChange: handleProvinceChange },
+        React.createElement("select", { onChange: handleProvinceChange, disabled: isDisabled, value: selectedProvince },
             React.createElement("option", { value: "" }, "Province"),
             provinces.map((province) => (React.createElement("option", { key: province.id, value: province.province_name_en }, province.province_name_en))))));
 };
 
-export { CountryList$1 as CountryList, CountryList as ProvienceList };
+// import React from 'react';
+// import countries from "../../assets/countries.json";
+// import ProvinceList from '../ProvienceList/ProvienceList';
+// interface Country {
+//     country_name: string; 
+// }
+// const CountryList = () => {
+//     const [selectedCountry, setSelectedCountry] = React.useState<string>("");
+//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedCountry(event.target.value);
+//     };
+//     return (
+//         <div>
+//             <select onChange={handleCountryChange}>
+//                 <option value="">Country</option>
+//                 {countries.map((country: Country) => (
+//                     <option key={country.country_name} value={country.country_name}>
+//                         {country.country_name}
+//                     </option>
+//                 ))}
+//             </select>
+//             <ProvinceList countryName={selectedCountry} />
+//         </div>
+//     );
+// };
+// export default CountryList;
+// "use client";
+// import React, { useState } from 'react';
+// import countries from "../../assets/countries.json";
+// interface Country {
+//     country_name: string; 
+// }
+// const CountryList = () => {
+//     const [selectedCountry, setSelectedCountry] = useState<string>("");
+//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedCountry(event.target.value);
+//     };
+//     return (
+//         <div>
+//             <select onChange={handleCountryChange}>
+//                 <option value="">Country</option>
+//                 {countries.map((country: Country) => (
+//                     <option key={country.country_name} value={country.country_name}>
+//                         {country.country_name}
+//                     </option>
+//                 ))}
+//             </select>
+//         </div>
+//     );
+// };
+// export default CountryList;
+const CountryList = () => {
+    const [selectedCountry, setSelectedCountry] = useState("");
+    const handleCountryChange = (event) => {
+        setSelectedCountry(event.target.value);
+    };
+    return (React.createElement("div", null,
+        React.createElement("select", { onChange: handleCountryChange },
+            React.createElement("option", { value: "" }, "Country"),
+            countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name)))),
+        React.createElement(ProvinceList, { selectedCountry: selectedCountry })));
+};
+
+export { CountryList, ProvinceList as ProvienceList };
 //# sourceMappingURL=index.js.map
