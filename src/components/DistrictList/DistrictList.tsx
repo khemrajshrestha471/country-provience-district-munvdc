@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import districts from "../../assets/districts.json";
-
+import MunVdc from '../MunVdcList/MunVdcList'
 interface District {
     district_id: string; 
     province_id: string;
@@ -9,6 +9,7 @@ interface District {
 }
 
 const DistrictList = ({ selectedProvinceId }: {selectedProvinceId: number}) => {
+    const [selectedDistrictId, setSelectedDistrictId] = useState<any>();
     const [selectedDistrict, setSelectedDistrict] = useState<string>("");
     const [filteredDistricts, setFilteredDistricts] = useState<District[]>([]);
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -23,13 +24,23 @@ const DistrictList = ({ selectedProvinceId }: {selectedProvinceId: number}) => {
         else {
             setIsDisabled(true);
             setSelectedDistrict("");
+            setSelectedDistrictId(0);
         }
 
     }, [selectedProvinceId]);
 
     const handleDistrictChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedDistrictName = event.target.value;
-        setSelectedDistrict(selectedDistrictName)
+        // setSelectedDistrict(selectedDistrictName)
+        const foundDistrict = districts.find(district => district.district_name_en === selectedDistrictName);
+
+        if (foundDistrict) {
+            setSelectedDistrictId(foundDistrict.district_id);
+            setSelectedDistrict(selectedDistrictName);
+        } else {
+            setSelectedDistrictId(0); 
+            setSelectedDistrict("");
+        }
     };
 
     return (
@@ -42,6 +53,7 @@ const DistrictList = ({ selectedProvinceId }: {selectedProvinceId: number}) => {
                     </option>
                 ))}
             </select>
+            <MunVdc selectedDistrictId={selectedDistrictId}/>
         </div>
     );
 };
