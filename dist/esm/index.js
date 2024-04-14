@@ -1256,9 +1256,9 @@ var countries = [
 const CountryList = ({ onCountrySelect }) => {
     const [selectedCountry, setSelectedCountry] = useState("");
     const handleCountryChange = (event) => {
-        const selectedCountryValue = event.target.value;
-        setSelectedCountry(selectedCountryValue);
-        onCountrySelect(selectedCountryValue);
+        const selectedCountryName = event.target.value;
+        setSelectedCountry(selectedCountryName);
+        onCountrySelect(selectedCountryName);
     };
     return (React.createElement("div", null,
         React.createElement("select", { onChange: handleCountryChange, value: selectedCountry },
@@ -1304,7 +1304,7 @@ var provinces = [
 	}
 ];
 
-const ProvinceList = ({ selectedCountry, setSelectedProvinceId }) => {
+const ProvinceList = ({ selectedCountry, setSelectedProvinceId, onProvinceSelect }) => {
     const [selectedProvince, setSelectedProvince] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
@@ -1319,6 +1319,7 @@ const ProvinceList = ({ selectedCountry, setSelectedProvinceId }) => {
     }, [selectedCountry]);
     const handleProvinceChange = (event) => {
         const selectedProvinceName = event.target.value;
+        onProvinceSelect(selectedProvinceName);
         const foundProvince = provinces.find(province => province.province_name_en === selectedProvinceName);
         if (foundProvince) {
             setSelectedProvinceId(foundProvince.id);
@@ -1800,7 +1801,7 @@ var districts = [
 	}
 ];
 
-const DistrictList = ({ selectedProvinceId, setSelectedDistrictId }) => {
+const DistrictList = ({ selectedProvinceId, setSelectedDistrictId, onDistrictSelect }) => {
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [filteredDistricts, setFilteredDistricts] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
@@ -1818,6 +1819,7 @@ const DistrictList = ({ selectedProvinceId, setSelectedDistrictId }) => {
     }, [selectedProvinceId]);
     const handleDistrictChange = (event) => {
         const selectedDistrictName = event.target.value;
+        onDistrictSelect(selectedDistrictName);
         const foundDistrict = districts.find(district => district.district_name_en === selectedDistrictName);
         if (foundDistrict) {
             setSelectedDistrictId(foundDistrict.district_id);
@@ -6355,7 +6357,7 @@ var munvdcs = [
 	}
 ];
 
-const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
+const MunVdcList = ({ selectedDistrictId, selectedProvinceId, onMunVdcSelect }) => {
     const [selectedMunVdc, setSelectedMunVdc] = useState("");
     const [filteredMunVdc, setFilteredMunVdc] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
@@ -6378,6 +6380,7 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
     }, [selectedProvinceId]);
     const handleMunVdcChange = (event) => {
         const selectedMunVdcName = event.target.value;
+        onMunVdcSelect(selectedMunVdcName);
         setSelectedMunVdc(selectedMunVdcName);
     };
     return (React.createElement("div", null,
