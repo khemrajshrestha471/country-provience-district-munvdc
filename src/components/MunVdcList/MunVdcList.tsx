@@ -15,7 +15,7 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }: {selectedDistric
 
 
     useEffect(() => {
-        if(selectedDistrictId && selectedProvinceId) {
+        if(selectedDistrictId) {
             const filtered = munvdcs.filter(munvdc => munvdc.district_id === String(selectedDistrictId));
             setFilteredMunVdc(filtered);
             setIsDisabled(false);
@@ -25,7 +25,14 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }: {selectedDistric
             setSelectedMunVdc("");
         }
 
-    }, [selectedDistrictId, selectedProvinceId]);
+    }, [selectedDistrictId]);
+
+    useEffect(() => {
+        if(selectedProvinceId != 0) {
+            setIsDisabled(true);
+            setSelectedMunVdc("");
+        }
+    }, [selectedProvinceId])
 
     const handleMunVdcChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedMunVdcName = event.target.value;
