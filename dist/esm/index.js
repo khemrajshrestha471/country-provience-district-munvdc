@@ -1253,40 +1253,15 @@ var countries = [
 	}
 ];
 
-// "use client";
-// import React, { useState } from 'react';
-// import countries from "../../assets/countries.json";
-// import Province from '../ProvinceList/ProvinceList'
-// interface Country {
-//     country_name: string; 
-// }
-// const CountryList = () => {
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         setSelectedCountry(event.target.value);
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleCountryChange} value={selectedCountry}>
-//                 <option value="">Country</option>
-//                 {countries.map((country: Country) => (
-//                     <option key={country.country_name} value={country.country_name}>
-//                         {country.country_name}
-//                     </option>
-//                 ))}
-//             </select>
-//             <Province selectedCountry={selectedCountry}/>
-//         </div>
-//     );
-// };
-// export default CountryList;
 const CountryList = ({ onCountrySelect }) => {
+    const [selectedCountry, setSelectedCountry] = useState("");
     const handleCountryChange = (event) => {
-        const selectedCountry = event.target.value;
-        onCountrySelect(selectedCountry);
+        const selectedCountryValue = event.target.value;
+        setSelectedCountry(selectedCountryValue);
+        onCountrySelect(selectedCountryValue);
     };
     return (React.createElement("div", null,
-        React.createElement("select", { onChange: handleCountryChange },
+        React.createElement("select", { onChange: handleCountryChange, value: selectedCountry },
             React.createElement("option", { value: "" }, "Country"),
             countries.map((country) => (React.createElement("option", { key: country.country_name, value: country.country_name }, country.country_name))))));
 };
@@ -1329,55 +1304,7 @@ var provinces = [
 	}
 ];
 
-// "use client";
-// import React, { useState, useEffect } from 'react';
-// import provinces from "../../assets/province.json";
-// import District from '../DistrictList/DistrictList'
-// interface Province {
-//     id: number; 
-//     province_name_en: string;
-// }
-// const ProvinceList = ({ selectedCountry  }: {selectedCountry: string}) => {
-//     const [selectedProvinceId, setSelectedProvinceId] = useState<any>();
-//     const [selectedProvince, setSelectedProvince] = useState<string>("");
-//     const [isDisabled, setIsDisabled] = useState<boolean>(true);
-//     useEffect(() => {
-//         if (selectedCountry === "Nepal") {
-//             setIsDisabled(false);
-//         } else {
-//             setIsDisabled(true);
-//             setSelectedProvince("");
-//             setSelectedProvinceId(0);
-//         }
-//     }, [selectedCountry]);
-//     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         const selectedProvinceName = event.target.value;
-//         const foundProvince = provinces.find(province => province.province_name_en === selectedProvinceName);
-//         if (foundProvince) {
-//             setSelectedProvinceId(foundProvince.id);
-//             setSelectedProvince(selectedProvinceName);
-//         } else {
-//             setSelectedProvinceId(0); 
-//             setSelectedProvince("");
-//         }
-//     };
-//     return (
-//         <div>
-//             <select onChange={handleProvinceChange} disabled={isDisabled} value={selectedProvince}>
-//                 <option value="">Province</option>
-//                 {provinces.map((province: Province) => (
-//                     <option key={province.id} value={province.province_name_en}>
-//                         {province.province_name_en}
-//                     </option>
-//                 ))}
-//             </select>
-//             <District selectedProvinceId={selectedProvinceId}/>
-//         </div>
-//     );
-// };
-// export default ProvinceList;
 const ProvinceList = ({ selectedCountry, setSelectedProvinceId }) => {
-    // const [selectedProvinceId, setSelectedProvinceId] = useState<any>();
     const [selectedProvince, setSelectedProvince] = useState("");
     const [isDisabled, setIsDisabled] = useState(true);
     useEffect(() => {
@@ -1873,60 +1800,7 @@ var districts = [
 	}
 ];
 
-// "use client";
-// import React, { useState, useEffect } from 'react';
-// import districts from "../../assets/districts.json";
-// import MunVdc from '../MunVdcList/MunVdcList'
-// interface District {
-//     district_id: string; 
-//     province_id: string;
-//     district_name_en: string;
-// }
-// const DistrictList = ({ selectedProvinceId }: {selectedProvinceId: number}) => {
-//     const [selectedDistrictId, setSelectedDistrictId] = useState<any>();
-//     const [selectedDistrict, setSelectedDistrict] = useState<string>("");
-//     const [filteredDistricts, setFilteredDistricts] = useState<District[]>([]);
-//     const [isDisabled, setIsDisabled] = useState<boolean>(true);
-//     useEffect(() => {
-//         if(selectedProvinceId) {
-//             const filtered = districts.filter(district => district.province_id === String(selectedProvinceId));
-//             setFilteredDistricts(filtered);
-//             setIsDisabled(false);
-//         }
-//         else {
-//             setIsDisabled(true);
-//             setSelectedDistrict("");
-//             setSelectedDistrictId(0);
-//         }
-//     }, [selectedProvinceId]);
-//     const handleDistrictChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         const selectedDistrictName = event.target.value;
-//         const foundDistrict = districts.find(district => district.district_name_en === selectedDistrictName);
-//         if (foundDistrict) {
-//             setSelectedDistrictId(foundDistrict.district_id);
-//             setSelectedDistrict(selectedDistrictName);
-//         } else {
-//             setSelectedDistrictId(0); 
-//             setSelectedDistrict("");
-//         }
-//     };
-//     return (
-//         <div>
-//             <select disabled={isDisabled} value={selectedDistrict} onChange={handleDistrictChange}>
-//                 <option value="">District</option>
-//                 {filteredDistricts.map((district: District) => (
-//                     <option key={district.district_id} value={district.district_name_en}>
-//                         {district.district_name_en}
-//                     </option>
-//                 ))}
-//             </select>
-//             <MunVdc selectedDistrictId={selectedDistrictId} selectedProvinceId={selectedProvinceId}/>
-//         </div>
-//     );
-// };
-// export default DistrictList;
 const DistrictList = ({ selectedProvinceId, setSelectedDistrictId }) => {
-    // const [selectedDistrictId, setSelectedDistrictId] = useState<any>();
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [filteredDistricts, setFilteredDistricts] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
@@ -6481,53 +6355,6 @@ var munvdcs = [
 	}
 ];
 
-// "use client";
-// import React, { useState, useEffect } from 'react';
-// import munvdcs from "../../assets/mun-vdc.json";
-// interface MunVdc {
-//     district_id: string; 
-//     local_body_id: string; 
-//     local_body_name_en: string;
-// }
-// const MunVdcList = ({ selectedDistrictId, selectedProvinceId }: {selectedDistrictId: number, selectedProvinceId:number}) => {
-//     const [selectedMunVdc, setSelectedMunVdc] = useState<string>("");
-//     const [filteredMunVdc, setFilteredMunVdc] = useState<MunVdc[]>([]);
-//     const [isDisabled, setIsDisabled] = useState<boolean>(true);
-//     useEffect(() => {
-//         if(selectedDistrictId) {
-//             const filtered = munvdcs.filter(munvdc => munvdc.district_id === String(selectedDistrictId));
-//             setFilteredMunVdc(filtered);
-//             setIsDisabled(false);
-//         }
-//         else {
-//             setIsDisabled(true);
-//             setSelectedMunVdc("");
-//         }
-//     }, [selectedDistrictId]);
-//     useEffect(() => {
-//         if(selectedProvinceId != 0) {
-//             setIsDisabled(true);
-//             setSelectedMunVdc("");
-//         }
-//     }, [selectedProvinceId])
-//     const handleMunVdcChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         const selectedMunVdcName = event.target.value;
-//         setSelectedMunVdc(selectedMunVdcName)
-//     };
-//     return (
-//         <div>
-//             <select disabled={isDisabled} value={selectedMunVdc} onChange={handleMunVdcChange}>
-//                 <option value="">Mun/Vdc</option>
-//                 {filteredMunVdc.map((munvdc: MunVdc) => (
-//                     <option key={munvdc.local_body_id} value={munvdc.local_body_name_en}>
-//                         {munvdc.local_body_name_en}
-//                     </option>
-//                 ))}
-//             </select>
-//         </div>
-//     );
-// };
-// export default MunVdcList;
 const MunVdcList = ({ selectedDistrictId, selectedProvinceId }) => {
     const [selectedMunVdc, setSelectedMunVdc] = useState("");
     const [filteredMunVdc, setFilteredMunVdc] = useState([]);
