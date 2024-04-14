@@ -1939,5 +1939,5 @@ const CountryList = () => {
         React.createElement(ProvinceList, { selectedCountry: selectedCountry })));
 };
 
-export { CountryList, DistrictList, ProvinceList as ProvienceList };
+export { CountryList, DistrictList, ProvinceList };
 //# sourceMappingURL=index.js.map

@@ -1943,5 +1943,5 @@ const CountryList = () => {
 
 exports.CountryList = CountryList;
 exports.DistrictList = DistrictList;
-exports.ProvienceList = ProvinceList;
+exports.ProvinceList = ProvinceList;
 //# sourceMappingURL=index.js.map
