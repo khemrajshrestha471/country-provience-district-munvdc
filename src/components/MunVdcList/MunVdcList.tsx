@@ -8,7 +8,7 @@ interface MunVdc {
     local_body_name_en: string;
 }
 
-const MunVdcList = ({ selectedDistrictId, selectedProvinceId }: {selectedDistrictId: number, selectedProvinceId:number}) => {
+const MunVdcList = ({ selectedDistrictId, selectedProvinceId, onMunVdcSelect }: {selectedDistrictId: number, selectedProvinceId:number, onMunVdcSelect: (munvdc: string) => void }) => {
     const [selectedMunVdc, setSelectedMunVdc] = useState<string>("");
     const [filteredMunVdc, setFilteredMunVdc] = useState<MunVdc[]>([]);
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -36,6 +36,7 @@ const MunVdcList = ({ selectedDistrictId, selectedProvinceId }: {selectedDistric
 
     const handleMunVdcChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedMunVdcName = event.target.value;
+        onMunVdcSelect(selectedMunVdcName);
         setSelectedMunVdc(selectedMunVdcName)
     };
 

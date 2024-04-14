@@ -7,7 +7,7 @@ interface District {
     district_name_en: string;
 }
 
-const DistrictList = ({ selectedProvinceId, setSelectedDistrictId }: {selectedProvinceId: number, setSelectedDistrictId: (id: any) => void }) => {
+const DistrictList = ({ selectedProvinceId, setSelectedDistrictId, onDistrictSelect }: {selectedProvinceId: number, setSelectedDistrictId: (id: any) => void, onDistrictSelect: (district: string) => void }) => {
     const [selectedDistrict, setSelectedDistrict] = useState<string>("");
     const [filteredDistricts, setFilteredDistricts] = useState<District[]>([]);
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
@@ -29,6 +29,7 @@ const DistrictList = ({ selectedProvinceId, setSelectedDistrictId }: {selectedPr
 
     const handleDistrictChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedDistrictName = event.target.value;
+        onDistrictSelect(selectedDistrictName);
         const foundDistrict = districts.find(district => district.district_name_en === selectedDistrictName);
 
         if (foundDistrict) {

@@ -9,9 +9,9 @@ interface Country {
 const CountryList = ({ onCountrySelect }: { onCountrySelect: (country: string) => void }) => {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedCountryValue = event.target.value;
-        setSelectedCountry(selectedCountryValue);
-        onCountrySelect(selectedCountryValue);
+        const selectedCountryName = event.target.value;
+        setSelectedCountry(selectedCountryName);
+        onCountrySelect(selectedCountryName);
     };
 
     return (

@@ -7,7 +7,7 @@ interface Province {
     province_name_en: string;
 }
 
-const ProvinceList = ({ selectedCountry, setSelectedProvinceId  }: {selectedCountry: string, setSelectedProvinceId: (id: number) => void }) => {
+const ProvinceList = ({ selectedCountry, setSelectedProvinceId, onProvinceSelect  }: {selectedCountry: string, setSelectedProvinceId: (id: number) => void, onProvinceSelect: (province: string) => void }) => {
     const [selectedProvince, setSelectedProvince] = useState<string>("");
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
@@ -23,6 +23,7 @@ const ProvinceList = ({ selectedCountry, setSelectedProvinceId  }: {selectedCoun
 
     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedProvinceName = event.target.value;
+        onProvinceSelect(selectedProvinceName);
         const foundProvince = provinces.find(province => province.province_name_en === selectedProvinceName);
 
         if (foundProvince) {
