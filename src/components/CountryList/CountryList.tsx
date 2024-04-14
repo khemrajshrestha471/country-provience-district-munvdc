@@ -34,9 +34,43 @@
 
 
 
+// "use client";
+// import React, { useState } from 'react';
+// import countries from "../../assets/countries.json";
+
+// interface Country {
+//     country_name: string; 
+// }
+
+// const CountryList = () => {
+//     const [selectedCountry, setSelectedCountry] = useState<string>("");
+
+//     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedCountry(event.target.value);
+//     };
+//     return (
+//         <div>
+//             <select onChange={handleCountryChange}>
+//                 <option value="">Country</option>
+//                 {countries.map((country: Country) => (
+//                     <option key={country.country_name} value={country.country_name}>
+//                         {country.country_name}
+//                     </option>
+//                 ))}
+//             </select>
+//         </div>
+//     );
+// };
+
+// export default CountryList;
+
+
+
 "use client";
+
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
+import Province from '../ProvienceList/ProvienceList'
 
 interface Country {
     country_name: string; 
@@ -48,6 +82,7 @@ const CountryList = () => {
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCountry(event.target.value);
     };
+
     return (
         <div>
             <select onChange={handleCountryChange}>
@@ -58,6 +93,7 @@ const CountryList = () => {
                     </option>
                 ))}
             </select>
+            <Province selectedCountry={selectedCountry}/>
         </div>
     );
 };

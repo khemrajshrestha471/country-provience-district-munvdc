@@ -49,8 +49,40 @@
 
 
 
+// "use client";
+// import React, { useState } from 'react';
+// import provinces from "../../assets/province.json";
+
+// interface Province {
+//     id: number; 
+//     province_name_en: string;
+// }
+
+// const ProvinceList = () => {
+//     const [selectedProvince, setSelectedProvince] = useState<string>("");
+
+//     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+//         setSelectedProvince(event.target.value);
+//     };
+//     return (
+//         <div>
+//             <select onChange={handleProvinceChange}>
+//                 <option value="">Province</option>
+//                 {provinces.map((province: Province) => (
+//                     <option key={province.id} value={province.province_name_en}>
+//                         {province.province_name_en}
+//                     </option>
+//                 ))}
+//             </select>
+//         </div>
+//     );
+// };
+
+// export default ProvinceList;
+
+
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import provinces from "../../assets/province.json";
 
 interface Province {
@@ -58,15 +90,26 @@ interface Province {
     province_name_en: string;
 }
 
-const CountryList = () => {
+const ProvinceList = ({ selectedCountry }: {selectedCountry: string}) => {
     const [selectedProvince, setSelectedProvince] = useState<string>("");
+    const [isDisabled, setIsDisabled] = useState<boolean>(true);
+
+    useEffect(() => {
+        if (selectedCountry === "Nepal") {
+            setIsDisabled(false);
+        } else {
+            setIsDisabled(true);
+            setSelectedProvince("");
+        }
+    }, [selectedCountry]);
 
     const handleProvinceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedProvince(event.target.value);
     };
+
     return (
         <div>
-            <select onChange={handleProvinceChange}>
+            <select onChange={handleProvinceChange} disabled={isDisabled} value={selectedProvince}>
                 <option value="">Province</option>
                 {provinces.map((province: Province) => (
                     <option key={province.id} value={province.province_name_en}>
@@ -78,4 +121,4 @@ const CountryList = () => {
     );
 };
 
-export default CountryList;
+export default ProvinceList;
