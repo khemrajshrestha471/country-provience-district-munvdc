@@ -1,2 +1,2 @@
 export { default as CountryList} from './CountryList';
-export { default as ProvienceList} from './ProvienceList';
+export { default as ProvienceList} from './ProvinceList';

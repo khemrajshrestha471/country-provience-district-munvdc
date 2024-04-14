@@ -1,5 +1,5 @@
 {
-  "name": "country-provience-district-munvdc",
+  "name": "country-province-district-munvdc",
   "version": "1.1.15",
   "description": "A complete npm package of react component for conditional selection of provience, district, mun/vdc based on country",
   "type": "module",

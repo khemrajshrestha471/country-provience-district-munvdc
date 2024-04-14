@@ -70,7 +70,7 @@
 
 import React, { useState } from 'react';
 import countries from "../../assets/countries.json";
-import Province from '../ProvienceList/ProvienceList'
+import Province from '../ProvinceList/ProvinceList'
 
 interface Country {
     country_name: string; 
@@ -78,14 +78,13 @@ interface Country {
 
 const CountryList = () => {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
-
     const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCountry(event.target.value);
     };
 
     return (
         <div>
-            <select onChange={handleCountryChange}>
+            <select onChange={handleCountryChange} value={selectedCountry}>
                 <option value="">Country</option>
                 {countries.map((country: Country) => (
                     <option key={country.country_name} value={country.country_name}>
