@@ -53,7 +53,7 @@ const DistrictList = ({ selectedProvinceId }: {selectedProvinceId: number}) => {
                     </option>
                 ))}
             </select>
-            <MunVdc selectedDistrictId={selectedDistrictId}/>
+            <MunVdc selectedDistrictId={selectedDistrictId} selectedProvinceId={selectedProvinceId}/>
         </div>
     );
 };
