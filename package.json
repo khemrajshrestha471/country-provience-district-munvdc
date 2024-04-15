@@ -9,6 +9,13 @@
   "author": "Khemraj Shrestha (www.khemrajshrestha.com.np)",
   "license": "MIT",
   "repository": "khemrajshrestha471/country-province-district-munvdc",
+  "keywords": [
+    "JavaScript",
+    "Front End Development",
+    "Nextjs",
+    "NPM",
+    "Node"
+  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",

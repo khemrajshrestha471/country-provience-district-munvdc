@@ -1,6 +1,6 @@
 # 𝐂𝐨𝐮𝐧𝐭𝐫𝐲-𝐏𝐫𝐨𝐯𝐢𝐧𝐜𝐞-𝐃𝐢𝐬𝐭𝐫𝐢𝐜𝐭-𝐌𝐮𝐧/𝐕𝐝𝐜
 
-country-province-district-munvdc is a npm package that provides a functionality to choose province based on country, choose district based on province and choose mun/vdc based on district selected. 
+This NPM package *country-province-district-munvdc* provides a functionality to choose province based on country, choose district based on province and choose Mun/Vdc based on district selected. 
 
 For more, visit [my blog](https://medium.com/@khemrajshrestha471/-23781ddde950).
 
