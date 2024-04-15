@@ -1269,8 +1269,8 @@ const CountryList = ({ onCountrySelect, }) => {
 var provinces = [
 	{
 		id: 1,
-		province_name_en: "State No. 1",
-		province_name_np: "प्रदेश नं. १"
+		province_name_en: "Koshi",
+		province_name_np: "कोशी"
 	},
 	{
 		id: 2,
